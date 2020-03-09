@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var audio1 = new Audio();
+      function musicPlay() {
+        audio1.src = document.getElementById("song2").value;
+        audio1.play();
+      }
+      function musicStop() {
+        audio1.pause();
+        audio1.currentTime = 0;
+      }
+    </script>
+    듣고 싶은 음악을 선택하세요 희망곡:
+    <select id="song2" name="song" size="1">
+      <option value="./videoplayback.mp4" selected> We are the world</option>
+      <option value="./videoplayback.mp4" selected> Legend never die</option>
+    </select>
+    <br />
+    <div>
+      <button onclick="musicPlay()">노래시작</button>
+      <button onclick="audio1.pause()">일시멈춤</button>
+      <button onclick="audio1.play()">계속감상</button>
+      <button onclick="musicStop()">멈춤</button>
+    </div>
+  </body>
+</html>

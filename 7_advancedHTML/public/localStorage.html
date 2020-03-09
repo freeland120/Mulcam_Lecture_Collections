@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function clickPoint() {
+        if (sessionStorage !== null) {
+          if (sessionStorage.points) {
+            sessionStorage.points++;
+          } else {
+            sessionStorage.points = 1;
+          }
+          document.getElementById("totalPoint").value = sessionStorage.points;
+        } else {
+          document.getElementById("totalPoint").value = "포인트 적립불가";
+        }
+      }
+
+      function showPoint() {
+        document.getElementById("totalPoint").value = sessionStorage.points;
+      }
+
+      function clearPoint() {
+        sessionStorage.removeItem("points");
+        document.getElementById("totalPoint").value = sessionStorage.points;
+      }
+    </script>
+  </head>
+  <body onload="showPoint()">
+    <p>누적 포인트</p>
+    <input type="text" id="totalPoint" disabled size="6" />
+    <button onclick="clickPoint()" type="button">+</button>
+    <button onclick="clearPoint()" type="button">reset</button>
+    <hr />
+    <p>"+"버튼을 클릭하면, 로컬포인트가 추가됨</p>
+  </body>
+</html>
